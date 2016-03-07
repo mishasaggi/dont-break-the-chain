@@ -3,16 +3,39 @@
     <title>Don't break the chain</title>
   </head>
   <body>
-    <script src="/bower_components/mithril/mithril.min.js"></script>
+    <script src="bower_components/mithril/mithril.min.js"></script>
     <script>
     //app namespace
+    var chain = {};
 
     //model
 
     //controller
 
     //view
-    
+    chain.view = function(ctrl) {
+      return m("table", chain.seven(function(){
+        return m("tr", chain.seven(function(){
+          return m("td", [
+            m("input[type=checkbox")
+          ]);
+        }));
+      }));
+    };
+
+    //helper functions
+    chain.seven = function(subject){
+      var output = [];
+      for(var i=0; i<7; i++){
+        //passing iteration index to the subject callback
+        output.push(subject(i));
+      }
+      return output;
+    }
+
+    //render
+    m.module(document.body, {controller: function(){}, view: chain.view})
+
     </script>
   </body>
 </html>
