@@ -105,10 +105,11 @@
 
     //highlights the current box
     //doesn't need an event handler because the binding is not bi-directional
+
     chain.highlights = function(index){
       return {
         style: {
-          background: chain.indexAt(index).getTime() == chain.today().getTime() ? "silver" : ""
+          background: chain.dateAt(index).getTime() == chain.today().getTime() ? "silver" : ""
         }
 
       }
